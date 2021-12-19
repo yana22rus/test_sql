@@ -1,8 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask,request,render_template
+from flask import Flask,request,render_template,url_for
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/ПОЛЬЗОВАТЕЛЬ/card.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/qwe/card.db'
 db = SQLAlchemy(app)
 
 class Card(db.Model):
@@ -49,8 +49,8 @@ def filter():
 @app.route('/add_card',methods=("GET","POST"))
 def add_card():
 
-    class_card = ["creature","action","item","support"]
-    type_card = ["strength","agility","intellect","willpower","endurance","netural"]
+    type_card= ["creature","action","item","support"]
+    class_card= ["strength","agility","intellect","willpower","endurance","netural"]
     rare_card = ["common","rare","epic","legendary","uniq_legendary"]
     mana_card = [str(x) for x in range(0,13)]
     attack_card = [str(x) for x in range(0,13)]
@@ -69,7 +69,7 @@ def add_card():
                     mana_card=request.form["mana_card"],
                     attack_card=request.form["attack_card"],
                     life_card=request.form["life_card"],
-                    keyword_card=request.form["keyword_card"]
+                    keyword_card=",".join(request.form.getlist("keyword_card"))
         )
 
         db.session.add(card)

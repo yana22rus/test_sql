@@ -10,44 +10,51 @@
     <input name="name_card" placeholder="Имя карты">
     <input name="description_card" placeholder="Описание карты">
 
-    <select name="class_card">
+    <select name="class_card" onclick="del_title_card('title_class_card')">
+        <option id="title_class_card">Класс карты</option>
         {% for x in class_card %}
         <option name="{{x}}" value="{{x}}">{{x}}</option>
         {%endfor%}
     </select>
 
-    <select name="type_card">
+    <select name="type_card" onclick="del_title_card('title_type_card')">
+        <option id="title_type_card">Тип карты</option>
         {% for x in type_card %}
         <option name="{{x}}" value="{{x}}">{{x}}</option>
         {%endfor%}
     </select>
 
-    <select name="rare_card">
+    <select name="rare_card" onclick="del_title_card('title_rare_card')">
+        <option id="title_rare_card">Редкость карты</option>
         {% for x in rare_card %}
         <option name="{{x}}" value="{{x}}">{{x}}</option>
         {%endfor%}
     </select>
 
-    <select name="mana_card">
+    <select name="mana_card" onclick="del_title_card('title_mana_card')">
+        <option id="title_mana_card">Стоимость манны</option>
         {% for x in mana_card %}
         <option name="{{x}}" value="{{x}}">{{x}}</option>
         {%endfor%}
     </select>
 
 
-    <select name="attack_card">
+    <select name="attack_card" onclick="del_title_card('title_attack_card')">
+        <option id="title_attack_card">Атака</option>
         {% for x in attack_card %}
         <option name="{{x}}" value="{{x}}">{{x}}</option>
         {%endfor%}
     </select>
 
-    <select name="life_card">
+    <select name="life_card" onclick="del_title_card('title_life_card')">
+        <option id="title_life_card">Здоровье</option>
         {% for x in life_card %}
         <option name="{{x}}" value="{{x}}">{{x}}</option>
         {%endfor%}
     </select>
 
-    <select name="keyword_card">
+    <select name="keyword_card" size="5" multiple>
+        <option>Ключевое слово</option>
         {% for x in keyword_card %}
         <option name="{{x}}" value="{{x}}">{{x}}</option>
         {%endfor%}
@@ -56,6 +63,6 @@
     <input type="submit">
 
 </form>
-
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
