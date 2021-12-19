@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+
+    <input name="name_card" placeholder="Имя карты">
+    <input name="description_card" placeholder="Описание карты">
+
+    <select name="class_card">
+        {% for x in class_card %}
+        <option name="{{x}}" value="{{x}}">{{x}}</option>
+        {%endfor%}
+    </select>
+
+    <select name="type_card">
+        {% for x in type_card %}
+        <option name="{{x}}" value="{{x}}">{{x}}</option>
+        {%endfor%}
+    </select>
+
+    <select name="rare_card">
+        {% for x in rare_card %}
+        <option name="{{x}}" value="{{x}}">{{x}}</option>
+        {%endfor%}
+    </select>
+
+    <select name="mana_card">
+        {% for x in mana_card %}
+        <option name="{{x}}" value="{{x}}">{{x}}</option>
+        {%endfor%}
+    </select>
+
+
+    <select name="attack_card">
+        {% for x in attack_card %}
+        <option name="{{x}}" value="{{x}}">{{x}}</option>
+        {%endfor%}
+    </select>
+
+    <select name="life_card">
+        {% for x in life_card %}
+        <option name="{{x}}" value="{{x}}">{{x}}</option>
+        {%endfor%}
+    </select>
+
+    <select name="keyword_card">
+        {% for x in keyword_card %}
+        <option name="{{x}}" value="{{x}}">{{x}}</option>
+        {%endfor%}
+    </select>
+
+    <input type="submit">
+
+</form>
+
+</body>
+</html>
