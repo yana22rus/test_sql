@@ -16,9 +16,13 @@ class Card(db.Model):
     attack_card = db.Column(db.Integer,nullable=True)
     life_card = db.Column(db.Integer,nullable=True)
     keyword_card = db.Column(db.String,nullable=True)
-
     def __repr__(self):
-        return '<User %r>' % self.username
+        return f"<users {self.id_card}>"
+
+@app.route("/show_card")
+def show_card():
+
+    return render_template("show_card.html",card=Card.query.all())
 
 @app.route("/filter",methods=('GET', 'POST'))
 @app.route("/",methods=['GET', 'POST'])
